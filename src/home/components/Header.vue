@@ -14,10 +14,10 @@
   </div>
 </template>
 
-<script lang="less">
-  export default{
-    name: 'Header',
-  };
+<script>
+export default {
+    name: "Header"
+};
 </script>
 <style lang='stylus' scped>
     // @import 
