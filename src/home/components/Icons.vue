@@ -18,92 +18,38 @@
 <script>
 export default {
   name: "HomeIcons",
+  props: {
+    list: Array
+  },
   data() {
     return {
       swiperOption: {
         loop: false
-      },
-      iconList: [
-        {
-          id: "01",
-          desc: "热门推荐",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-        },
-        {
-          id: "02",
-          desc: "热门推荐",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-        },
-        {
-          id: "03",
-          desc: "热门推荐",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-        },
-        {
-          id: "04",
-          desc: "热门推荐",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-        },
-        {
-          id: "05",
-          desc: "热门推荐",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-        },
-        {
-          id: "06",
-          desc: "热门推荐",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-        },
-        {
-          id: "07",
-          desc: "热门推荐",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-        },
-        {
-          id: "08",
-          desc: "热门推荐",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-        },
-        {
-          id: "09",
-          desc: "热门推荐",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-        }
-      ]
+      }
     };
   },
   computed: {
     pages() {
       const pages = [];
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8);
         if (!pages[page]) {
           pages[page] = [];
         }
         pages[page].push(item);
       });
-      // console.log(pages);
       return pages;
     }
   }
 };
 </script>
-<style lang='stylus' scped>
+<style lang='stylus' scoped>
   @import '~style/varibles.styl'
   @import '~style/mixins.styl'
   .icons .swiper-container
     overflow hidden
     height 0
-    padding-bottom 50%
+    padding-bottom 4rem
 
   .icon
     position relative
@@ -112,7 +58,7 @@ export default {
     width  25%
     padding-top .1rem
     height 0
-    padding-bottom 25%
+    padding-bottom 2rem
     .icon-img
       width 1.1rem
       height 1.1rem

@@ -1,7 +1,7 @@
 <template>
    <div class="swiper-list">
-      <swiper :options="swiperOption" >
-        <swiper-slide v-for="tiem of swiperList " :key="tiem.id" >
+      <swiper :options="swiperOption" v-if="showSwiper">
+        <swiper-slide v-for="tiem of list" :key="tiem.id" >
           <img class="swiper-img" :src="tiem.imgUrl" alt="">
         </swiper-slide>
         <div class="swiper-pagination"  slot="pagination"></div>
@@ -12,6 +12,9 @@
 <script >
 export default {
   name: "HomeSwiper",
+  props: {
+    list: Array
+  },
   data() {
     return {
       swiperOption: {
@@ -19,30 +22,17 @@ export default {
           el: ".swiper-pagination"
         },
         loop: true
-      },
-      swiperList: [
-        {
-          id: "01",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1805/3b/ef86879aa50e3002.jpg_750x200_2a108508.jpg"
-        },
-        {
-          id: "02",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1805/3b/ef86879aa50e3002.jpg_750x200_2a108508.jpg"
-        },
-        {
-          id: "03",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1805/3b/ef86879aa50e3002.jpg_750x200_2a108508.jpg"
-        }
-      ]
+      }
     };
+  },
+  computed: {
+    showSwiper() {
+      return this.list.length;
+    }
   }
 };
 </script>
-<style lang='stylus' scped>
-    // @import '~style/varibles.styl'
+<style lang='stylus' scoped>
   .swiper-list .swiper-pagination-bullet-active 
     background: #fff
 
@@ -51,7 +41,7 @@ export default {
     background : #eeeeee
     width :100%
     height :0
-    padding-bottom :26.0%
+    padding-bottom :31%
   .swiper-img
     width :100%
         
