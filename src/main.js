@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import VueAwesomeSwiper from "vue-awesome-swiper";
+import "babel-polyfill";
 import fastClick from "fastclick";
 import "style/reset.css";
 import "style/border.css";
